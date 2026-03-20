@@ -5,20 +5,35 @@
 //  Created by G Yacobu on 20/03/26.
 //
 
-import SwiftUI
+/*
+ 
+ 📁 Domain
+    ├── Models
+    │     └── CommentModel.swift
+    ├── UseCases
+    │     └── FetchCommentsUseCase.swift
+    ├── Protocols
+    │     ├── NetworkServiceProtocol.swift
+    │     └── CommentUseCaseProtocol.swift
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+ 📁 Data
+    ├── Models (DTO)
+    │     └── CommentResponseDTO.swift
+    ├── Network
+    │     └── NetworkService.swift
+    ├── Mappers
+    │     └── CommentMapper.swift
 
-#Preview {
-    ContentView()
-}
+ 📁 Presentation
+    ├── ViewModels
+    │     └── CommentViewModel.swift
+    ├── Views
+    │     └── CommentView.swift
+
+ 📁 Core
+    ├── Extensions
+    ├── Utils
+ 
+ 
+ */
+
