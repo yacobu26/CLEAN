@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 final class MockNetworkService: NetworkServiceProtocol {
     
     var fileName: String = "MockResponse"
