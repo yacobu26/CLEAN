@@ -11,28 +11,32 @@ struct CommentView: View {
     
     @StateObject private var vm: CommentViewModel
     
-    
-    init() {
-        let service = NetworkService()
-        let useCase = FetchCommentsUseCase(service: service)
-        _vm = StateObject(wrappedValue: CommentViewModel(useCase: useCase))
+    init(container: AppContainer) {
+        _vm = StateObject(wrappedValue: container.commentViewModel)
     }
     
     var body: some View {
         
-        List(vm.comments, id:\.id) { comment in
-            
-            VStack(alignment: .leading) {
-                Text(comment.userName).bold()
-                Text(comment.message)
-                Text("❤️")
+        ZStack {
+           
+            List(vm.comments, id:\.id) { comment in
+                
+                VStack(alignment: .leading) {
+                    Text(comment.userName).bold()
+                    Text(comment.message)
+                    Text("❤️")
+                }
             }
-
+            if vm.isLoading {
+                ProgressView()
+            }
         }
         .task {
             await vm.loadComments()
-        }
-        
-        
+        } 
     }
+}
+
+#Preview {
+    CommentView(container: AppContainer(environment: .mock))
 }

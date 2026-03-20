@@ -11,7 +11,7 @@ import SwiftUI
 struct CleanArchApp: App {
     var body: some Scene {
         WindowGroup {
-            CommentView()
+            CommentView(container: AppContainer(environment: .live))
         }
     }
 }
